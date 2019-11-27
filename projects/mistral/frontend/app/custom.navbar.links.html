@@ -7,10 +7,19 @@
         <a class='nav-link' routerLink='app/requests' routerLinkActive="active">My Requests</a>
     </li>
 
-	<li class='nav-item' *ngIf="user && (user.isAdmin || user.isGroupAdmin)">
-		<a class='nav-link' routerLink="/app/admin/users" routerLinkActive="active">
-			Users
-		</a>
-	</li>
-
+    <li class='nav-item' *ngIf="user && (user.isAdmin || user.isGroupAdmin)">
+        <a class='nav-link' routerLink="/app/admin/users" routerLinkActive="active">
+            Users
+        </a>
+    </li>
+    <li class='nav-item' *ngIf="user" ngbDropdown>
+        <a class='nav-link' style="cursor: pointer" ngbDropdownToggle id="navbarDropdownPlotlyLink"
+           role="button">
+            Plotly
+        </a>
+        <div ngbDropdownMenu aria-labelledby="navbarDropdownPlotlyLink" class="dropdown-menu">
+            <a ngbDropdownItem routerLink='/app/plotly/scatter' routerLinkActive="active">Scatter</a>
+            <a ngbDropdownItem routerLink='/app/plotly/map' routerLinkActive="active">Map</a>
+        </div>
+    </li>
 </ul>

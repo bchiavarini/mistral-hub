@@ -21,6 +21,8 @@ import {StepDatasetsComponent} from '@app/components/multi-step-wizard/step-data
 import {StepFiltersComponent} from '@app/components/multi-step-wizard/step-filters/step-filters.component';
 import {StepPostprocessComponent} from "@app/components/multi-step-wizard/step-postprocess/step-postprocess.component";
 import {StepSubmitComponent} from "@app/components/multi-step-wizard/step-submit/step-submit.component";
+import {ScatterComponent} from "@app/components/plotly/scatter.component";
+import {MapComponent} from "@app/components/plotly/map.component";
 
 import {FormatDatePipe} from '@app/pipes/format-date.pipe';
 import {WorkflowGuard} from "@app/services/workflow-guard.service";
@@ -38,6 +40,8 @@ const appRoutes: Routes = [
         ]
     },
     {path: 'app/requests', component: DashboardComponent, canActivate: [AuthGuard]},
+    {path: 'app/plotly/scatter', component: ScatterComponent, canActivate: [AuthGuard]},
+    {path: 'app/plotly/map', component: MapComponent, canActivate: [AuthGuard]},
     {path: 'app', redirectTo: '/app/data/datasets', pathMatch: 'full'},
     {path: '', redirectTo: '/app/data/datasets', pathMatch: 'full'},
 ];
@@ -50,6 +54,8 @@ const appRoutes: Routes = [
     declarations: [
         HomeComponent,
         DataComponent,
+        ScatterComponent,
+        MapComponent,
         MultiStepWizardComponent,
         NavbarComponent,
         StepDatasetsComponent,
